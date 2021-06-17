@@ -44,19 +44,24 @@ class EditDialog : DialogFragment() {
     fun setBtnListeners() {
 
         binding.btOk.setOnClickListener {
-            data?.let { data ->
-                (activity as? DialogListener)?.onOkClick(
-                    MarkerEntity(
-                        data.latitude,
-                        data.longitude,
-                        binding.tvTitle.text.toString(),
-                        binding.tvAnnotation.text.toString()
-                    )
-                )
-            }
+            saveData()
             dismiss()
         }
+
         binding.btCancel.setOnClickListener { dismiss() }
+    }
+
+    private fun saveData() {
+        data?.let { data ->
+            (activity as? DialogListener)?.onOkClick(
+                MarkerEntity(
+                    data.latitude,
+                    data.longitude,
+                    binding.tvTitle.text.toString(),
+                    binding.tvAnnotation.text.toString()
+                )
+            )
+        }
     }
 
     override fun onDestroy() {
