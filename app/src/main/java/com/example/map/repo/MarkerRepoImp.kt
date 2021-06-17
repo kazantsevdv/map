@@ -9,15 +9,15 @@ class MarkerRepoImp(val db: MarkerDB) : IMarkerRepo {
         return db.MarkerDao().getAll()
     }
 
-    override fun updateMarker(marker: MarkerEntity) {
+    override suspend fun updateMarker(marker: MarkerEntity) {
         db.MarkerDao().update(marker)
     }
 
-    override fun deleteMarker(marker: MarkerEntity) {
+    override suspend fun deleteMarker(marker: MarkerEntity) {
         db.MarkerDao().delete(marker)
     }
 
-    override fun addMarker(marker: MarkerEntity) {
+    override suspend fun addMarker(marker: MarkerEntity) {
         db.MarkerDao().insert(marker)
     }
 

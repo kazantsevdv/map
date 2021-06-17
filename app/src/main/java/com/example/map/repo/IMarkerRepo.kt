@@ -5,7 +5,7 @@ import com.example.map.data.MarkerEntity
 
 interface IMarkerRepo {
     fun getMarkers(): LiveData<List<MarkerEntity>>
-    fun updateMarker(marker:MarkerEntity)
-    fun deleteMarker(marker:MarkerEntity)
-    fun addMarker(marker:MarkerEntity)
+    suspend fun updateMarker(marker: MarkerEntity)
+    suspend fun deleteMarker(marker: MarkerEntity)
+    suspend fun addMarker(marker: MarkerEntity)
 }

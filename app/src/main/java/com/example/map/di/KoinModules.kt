@@ -28,7 +28,6 @@ val databaseModule = module {
     fun provideDatabase(application: Application): MarkerDB {
         return Room.databaseBuilder(application, MarkerDB::class.java, "db")
             .fallbackToDestructiveMigration()
-            .allowMainThreadQueries()
             .build()
     }
     single { provideDatabase(get()) }

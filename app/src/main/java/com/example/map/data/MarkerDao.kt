@@ -11,12 +11,12 @@ interface MarkerDao {
     fun getAll(): LiveData<List<MarkerEntity>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insert(marker: MarkerEntity)
+    suspend  fun  insert(marker: MarkerEntity)
 
     @Update
-    fun update(marker: MarkerEntity)
+    suspend fun update(marker: MarkerEntity)
 
     @Delete
-    fun delete(marker: MarkerEntity)
+    suspend  fun delete(marker: MarkerEntity)
 
 }
