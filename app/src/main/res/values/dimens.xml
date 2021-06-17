@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="margin_start">5dp</dimen>
+    <dimen name="margin_vert">5dp</dimen>
+    <dimen name="card_margin">5dp</dimen>
+    <dimen name="buttom_margit_horizont">10dp</dimen>
+    <dimen name="dialog_margin">10dp</dimen>
+</resources>

@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="@dimen/dialog_margin">
+
+    <TextView
+        android:id="@+id/latitude"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/Latitude"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_latitude"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_start"
+        app:layout_constraintBottom_toBottomOf="@+id/latitude"
+        app:layout_constraintStart_toEndOf="@+id/latitude"
+        app:layout_constraintTop_toTopOf="@+id/latitude"
+        tools:text="2125.32" />
+
+    <TextView
+        android:id="@+id/longitude"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_start"
+        android:text="@string/longitude"
+        app:layout_constraintStart_toEndOf="@+id/tv_latitude"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_longitude"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_start"
+        app:layout_constraintBottom_toBottomOf="@+id/latitude"
+        app:layout_constraintStart_toEndOf="@+id/longitude"
+        app:layout_constraintTop_toTopOf="@+id/latitude"
+        tools:text="2125.32" />
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="@dimen/margin_vert"
+        android:text="@string/title"
+        app:layout_constraintBottom_toTopOf="@+id/tv_annotation"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/latitude" />
+
+    <EditText
+        android:autofillHints="@string/title"
+        android:id="@+id/tv_title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_start"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/title"
+        app:layout_constraintTop_toBottomOf="@+id/latitude"
+        tools:text="Asdfghj" />
+
+    <TextView
+        android:id="@+id/annotation"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="@dimen/margin_vert"
+        android:text="@string/annotation"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_annotation"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_title" />
+
+    <EditText
+        android:autofillHints="@string/annotation"
+        android:id="@+id/tv_annotation"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_start"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/annotation"
+        app:layout_constraintTop_toBottomOf="@+id/tv_title"
+        tools:text="Asdfghj" />
+
+    <Button
+        android:id="@+id/bt_cancel"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/buttom_margit_horizont"
+        android:text="Отмена"
+        app:layout_constraintEnd_toStartOf="@+id/bt_ok"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_chainStyle="spread"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_annotation" />
+
+    <Button
+        android:id="@+id/bt_ok"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/buttom_margit_horizont"
+        android:text="Ok"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/bt_cancel"
+        app:layout_constraintTop_toBottomOf="@+id/tv_annotation" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

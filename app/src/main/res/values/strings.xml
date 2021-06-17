@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">map</string>
+    <string name="no_data">Нет данных</string>
+    <string name="Latitude">Широта:</string>
+    <string name="longitude">Долгота:</string>
+    <string name="title">Заголовок:</string>
+    <string name="annotation">Анотация:</string>
+    <string name="action_hist">История</string>
+    <string name="no_geo_perm">Нет разрешения на геолокацию</string>
+
 </resources>
