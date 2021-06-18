@@ -1,7 +1,7 @@
 package com.example.map.view
 
-import com.example.map.data.MarkerEntity
+import com.example.map.model.Marker
 
 interface DialogListener {
-    fun onOkClick(data: MarkerEntity)
+    fun onOkClick(data: Marker)
 }

@@ -2,20 +2,23 @@ package com.example.map.view
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.map.data.MarkerEntity
+import com.example.map.model.Marker
 import com.example.map.repo.IMarkerRepo
 import kotlinx.coroutines.launch
 
 class HistActivityViewModel(private val repo: IMarkerRepo) : ViewModel() {
     fun getMarkers() = repo.getMarkers()
 
-    fun removeMarker(data: MarkerEntity) {
+
+    fun removeMarker(data: Marker) {
         viewModelScope.launch {
-            repo.deleteMarker(data)
+            repo.deleteMarker(
+                (data)
+            )
         }
     }
 
-    fun updateMarker(data: MarkerEntity) {
+    fun updateMarker(data: Marker) {
         viewModelScope.launch {
             repo.updateMarker(data)
         }

@@ -5,14 +5,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.DialogFragment
-import com.example.map.data.MarkerEntity
 import com.example.map.databinding.DialogEditBinding
+import com.example.map.model.Marker
 
 class EditDialog : DialogFragment() {
     private var _viewBinding: DialogEditBinding? = null
     private val binding get() = checkNotNull(_viewBinding)
 
-    private val data: MarkerEntity? by lazy { arguments?.getParcelable(ARG_PARAM1) }
+    private val data: Marker? by lazy { arguments?.getParcelable(ARG_PARAM1) }
 
 
     override fun onCreateView(
@@ -34,14 +34,14 @@ class EditDialog : DialogFragment() {
     private fun setupUI() {
 
         data?.let {
-            binding.tvLatitude.text = String.format("%.5f", it.latitude)
-            binding.tvLongitude.text = String.format("%.5f", it.latitude)
+            binding.tvLatitude.text = it.latitudeStr
+            binding.tvLongitude.text = it.longitudeStr
             binding.tvTitle.setText(it.title)
             binding.tvAnnotation.setText(it.info)
         }
     }
 
-    fun setBtnListeners() {
+    private fun setBtnListeners() {
 
         binding.btOk.setOnClickListener {
             saveData()
@@ -54,7 +54,7 @@ class EditDialog : DialogFragment() {
     private fun saveData() {
         data?.let { data ->
             (activity as? DialogListener)?.onOkClick(
-                MarkerEntity(
+                Marker(
                     data.latitude,
                     data.longitude,
                     binding.tvTitle.text.toString(),
@@ -73,7 +73,7 @@ class EditDialog : DialogFragment() {
         const val ARG_PARAM1 = "ARG_PARAM1"
 
         @JvmStatic
-        fun newInstance(data: MarkerEntity) =
+        fun newInstance(data: Marker) =
             EditDialog().apply {
                 arguments = Bundle().apply {
                     putParcelable(ARG_PARAM1, data)

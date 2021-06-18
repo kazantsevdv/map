@@ -4,8 +4,8 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.example.map.data.MarkerEntity
 import com.example.map.databinding.DataItemBinding
+import com.example.map.model.Marker
 
 class AdapterList(
     private var onListItemClickListener: OnListItemClickListener,
@@ -14,9 +14,9 @@ class AdapterList(
     RecyclerView.Adapter<AdapterList.RecyclerItemViewHolder>() {
 
     private lateinit var bindingItem: DataItemBinding
-    private var data: MutableList<MarkerEntity> = mutableListOf()
+    private var data: MutableList<Marker> = mutableListOf()
 
-    fun updateData(newData: List<MarkerEntity>) {
+    fun updateData(newData: List<Marker>) {
         val diffResult = DiffUtil.calculateDiff(DataDiffCallback(newData, data))
         data.clear()
         data.addAll(newData)
@@ -40,10 +40,10 @@ class AdapterList(
     inner class RecyclerItemViewHolder(val binding: DataItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(data: MarkerEntity) {
+        fun bind(data: Marker) {
             if (layoutPosition != RecyclerView.NO_POSITION) {
-                binding.tvLatitude.text = String.format("%.5f", data.latitude)
-                binding.tvLongitude.text = String.format("%.5f", data.latitude)
+                binding.tvLatitude.text = data.latitudeStr
+                binding.tvLongitude.text = data.longitudeStr
                 binding.tvTitle.text = data.title
                 binding.tvAnnotation.text = data.info
                 binding.btDelete.setOnClickListener { onButtonDeleteListener.onItemClick(data) }
@@ -53,7 +53,7 @@ class AdapterList(
     }
 
 
-    inner class DataDiffCallback(val newData: List<MarkerEntity>, val oldData: List<MarkerEntity>) :
+    inner class DataDiffCallback(val newData: List<Marker>, val oldData: List<Marker>) :
         DiffUtil.Callback() {
 
         override fun getOldListSize(): Int {
@@ -77,5 +77,5 @@ class AdapterList(
 }
 
 interface OnListItemClickListener {
-    fun onItemClick(data: MarkerEntity)
+    fun onItemClick(data: Marker)
 }

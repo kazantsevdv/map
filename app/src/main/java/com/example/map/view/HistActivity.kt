@@ -3,8 +3,8 @@ package com.example.map.view
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
-import com.example.map.data.MarkerEntity
 import com.example.map.databinding.ActivityHitsBinding
+import com.example.map.model.Marker
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 
@@ -32,7 +32,7 @@ class HistActivity : AppCompatActivity(), DialogListener {
     }
 
     private fun setupObservers() {
-        viewModel.getMarkers().observe(this, { it ->
+        viewModel.getMarkers().observe(this, {
             it?.let { markers ->
                 if (!markers.isNullOrEmpty()) {
                     binding.data.visibility = View.VISIBLE
@@ -46,25 +46,25 @@ class HistActivity : AppCompatActivity(), DialogListener {
         })
     }
 
-    fun showDialog(data: MarkerEntity) {
+    fun showDialog(data: Marker) {
         val newFragment = EditDialog.newInstance(data)
         newFragment.show(supportFragmentManager, "dialog")
     }
 
     private val onListItemClickListener: OnListItemClickListener =
         object : OnListItemClickListener {
-            override fun onItemClick(data: MarkerEntity) {
+            override fun onItemClick(data: Marker) {
                 showDialog(data)
             }
         }
     private val onButtonDeleteListener: OnListItemClickListener =
         object : OnListItemClickListener {
-            override fun onItemClick(data: MarkerEntity) {
+            override fun onItemClick(data: Marker) {
                 viewModel.removeMarker(data)
             }
         }
 
-    override fun onOkClick(data: MarkerEntity) {
+    override fun onOkClick(data: Marker) {
         viewModel.updateMarker(data)
     }
 }

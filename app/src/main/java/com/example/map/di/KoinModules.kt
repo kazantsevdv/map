@@ -6,6 +6,7 @@ import androidx.room.Room
 import com.example.map.data.MarkerDB
 import com.example.map.repo.IMarkerRepo
 import com.example.map.repo.MarkerRepoImp
+import com.example.map.util.ModelTransform
 import com.example.map.view.HistActivityViewModel
 import com.example.map.view.MainActivityViewModel
 import org.koin.androidx.viewmodel.dsl.viewModel
@@ -14,10 +15,11 @@ import org.koin.dsl.module
 
 val repositoryModule = module {
 
-    fun provideMarkerRepo(database: MarkerDB): IMarkerRepo {
-        return MarkerRepoImp(database)
+    fun provideMarkerRepo(database: MarkerDB,transform: ModelTransform): IMarkerRepo {
+        return MarkerRepoImp(database,transform)
     }
-    single { provideMarkerRepo(get()) }
+    single { ModelTransform() }
+    single { provideMarkerRepo(get(),get()) }
 }
 
 

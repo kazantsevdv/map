@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:minWidth="300dp"
     android:padding="@dimen/dialog_margin">
 
     <TextView
@@ -57,6 +58,7 @@
         android:autofillHints="@string/title"
         android:id="@+id/tv_title"
         android:layout_width="0dp"
+
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/margin_start"
         app:layout_constraintEnd_toEndOf="parent"
@@ -87,7 +89,7 @@
 
     <Button
         android:id="@+id/bt_cancel"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/buttom_margit_horizont"
         android:text="Отмена"
@@ -99,7 +101,7 @@
 
     <Button
         android:id="@+id/bt_ok"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/buttom_margit_horizont"
         android:text="Ok"
