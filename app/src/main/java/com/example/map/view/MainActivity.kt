@@ -84,8 +84,7 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback {
         return (ActivityCompat.checkSelfPermission(
             this.applicationContext,
             ACCESS_FINE_LOCATION
-        )
-                == PackageManager.PERMISSION_GRANTED)
+        ) == PackageManager.PERMISSION_GRANTED)
     }
 
     private fun setupObservers(geoMap: GoogleMap) {
